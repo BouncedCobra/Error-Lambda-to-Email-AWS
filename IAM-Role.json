@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "arn:<partition>:sns:<region>:<AWS account number>:<name of the SNS topic from previous step>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:<partition>:logs:<region>:<AWS account number>:log-group:/aws/lambda/<name of the lambda function you are going to create in next step>:*"
+        }
+    ]
+}
